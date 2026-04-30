@@ -16,6 +16,8 @@ class App( val wiseSayingController: WiseSayingController = WiseSayingController
                 "등록" -> wiseSayingController.write()
                 "목록" -> wiseSayingController.list()
                 "삭제" -> wiseSayingController.delete(rq)
+                "수정" -> wiseSayingController.modify(rq)
+                 else -> println("존재하지 않는 명령입니다.")
 
                 }
             }

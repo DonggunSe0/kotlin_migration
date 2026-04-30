@@ -2,6 +2,11 @@ package wiseSaying
 
 data class WiseSaying(
     val id: Int,
-    val content : String,
-    val author : String
-)
+    var content : String,
+    var author : String
+){
+    fun modify(content: String, author: String) {
+        this.content = content
+        this.author = author
+    }
+}
