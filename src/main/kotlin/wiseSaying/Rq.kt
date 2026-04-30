@@ -3,15 +3,16 @@ package wiseSaying
 class Rq(
     cmd: String,
 ) {
-
+    val action: String
     private val paramMap: Map<String, String>
 
     init {
         val cmdBits = cmd.split("?")
 
-        val queryString = cmdBits[1]
+
+        action = cmdBits[0]
         paramMap = if (cmdBits.size == 2) {
-            queryString
+            cmdBits[1]
                 .split("&")
                 .mapNotNull {
                     val paramBits = it.split("=", limit = 2)
@@ -30,5 +31,10 @@ class Rq(
 
     fun getParam(paramName: String, defaultValue: String): String {
         return paramMap[paramName] ?: defaultValue
+    }
+
+    fun getParamAsInt(paramName: String, defaultValue: Int): Int {
+        return getParam(paramName,"")
+            .toIntOrNull() ?: defaultValue
     }
 }
