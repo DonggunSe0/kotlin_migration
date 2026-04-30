@@ -1,7 +1,7 @@
 package wiseSaying
 
 data class WiseSaying(
-    var id: Int,
-    var content : String,
-    var author : String
+    val id: Int,
+    val content : String,
+    val author : String
 )
