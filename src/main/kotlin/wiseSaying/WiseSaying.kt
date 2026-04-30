@@ -1,7 +1,7 @@
 package wiseSaying
 
 data class WiseSaying(
-    val id: Int,
+    var id: Int = 0,
     var content : String,
     var author : String
 ){
@@ -9,4 +9,6 @@ data class WiseSaying(
         this.content = content
         this.author = author
     }
+
+    fun isNew() = id == 0
 }
